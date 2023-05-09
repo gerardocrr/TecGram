@@ -21,4 +21,13 @@ class MuroController extends Controller
     {
         return view('publicacion.create');
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request,[
+            'titulo' => ['required', 'max:255'],
+            'descripcion' => ['required'],
+            'imagen' => 'required'
+        ]);
+    }
 }
